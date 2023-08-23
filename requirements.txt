@@ -3,7 +3,6 @@ ipykernel==6.25.1
 streamlit==1.25.0
 openai
 embedchain
-pysqlite3
 langchain>=0.0.205"
 requests
 chromadb>=0.4.2
