@@ -7,7 +7,7 @@ from embedchain import App
 st.write(
     "Has environment variables been set:",
     os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"]
-
+)
 #Initiating the Embedchain
 
 allende_bot = App()
