@@ -4,9 +4,8 @@ import os
 from embedchain import App
 
 #Initiating OPENAI API KEY
-st.write(
-    os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"]
-)
+os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"]
+
 #Initiating the Embedchain
 
 allende_bot = App()
