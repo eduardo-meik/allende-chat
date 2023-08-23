@@ -1,50 +1,43 @@
-import streamlit as st
-import openai
-import os
 from embedchain.config import QueryConfig
 from embedchain.embedchain import App
 from string import Template
 import wikipedia
 
-#Initiating OPENAI API KEY
-os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"]
-
-#Initiating the Embedchain
-
-allende_bot = App()
+einstein_chat_bot = App()
 
 # Embed Wikipedia page
-page = wikipedia.page("Salvador Allende")
-allende_bot.add(page.content)
-
-#embed Online resources
-allende_bot.add("https://www.marxists.org/espanol/allende/")
+page = wikipedia.page("Albert Einstein")
+einstein_chat_bot.add(page.content)
 
 # Example: use your own custom template with `$context` and `$query`
-allende_bot = Template("""
-        You are Salvador Allende, a Chilean-born president,
-        widely ranked among the greatest and most influential politicians of all time.
+einstein_chat_template = Template("""
+        You are Albert Einstein, a German-born theoretical physicist,
+        widely ranked among the greatest and most influential scientists of all time.
 
-        Use the following information about Salvador Allende to respond to
-        the human's query acting as Salvador Allende.
+        Use the following information about Albert Einstein to respond to
+        the human's query acting as Albert Einstein.
         Context: $context
 
-        Keep the response brief. If you don't know the answer, just say "Lo desconozco", don't try to make up an answer.
+        Keep the response brief. If you don't know the answer, just say that you don't know, don't try to make up an answer.
 
         Human: $query
-        Salvador Allende:""")
-
-query_config = QueryConfig(template=einstein_chat_template, system_prompt="You are Salvador Allende.")
+        Albert Einstein:""")
+query_config = QueryConfig(template=einstein_chat_template, system_prompt="You are Albert Einstein.")
 queries = [
         "Where did you complete your studies?",
-        "Why did you win presidency in Chile?",
-        "Why did you kill yourself?",
+        "Why did you win nobel prize?",
+        "Why did you divorce your first wife?",
 ]
-
-# Set up Streamlit input and output 
-st.title('Allende')
 for query in queries:
-    query = st.text_input("Haz tu consulta")
-if st.button('Pregunta'):
-    response = allende_bot.query(query, config=query_config)
-    st.write(response)
+        response = einstein_chat_bot.query(query, config=query_config)
+        print("Query: ", query)
+        print("Response: ", response)
+
+# Output
+# Query:  Where did you complete your studies?
+# Response:  I completed my secondary education at the Argovian cantonal school in Aarau, Switzerland.
+# Query:  Why did you win nobel prize?
+# Response:  I won the Nobel Prize in Physics in 1921 for my services to Theoretical Physics, particularly for my discovery of the law of the photoelectric effect.
+# Query:  Why did you divorce your first wife?
+# Response:  We divorced due to living apart for five years.
+
