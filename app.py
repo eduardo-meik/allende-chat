@@ -3,7 +3,7 @@ import streamlit as st
 import os
 
 #Initiating OPENAI API KEY
-OPENAI_API_KEY == st.secrets(["OPENAI"]["OPENAI_API_KEY"])
+OPENAI_API_KEY = st.secrets(["OPENAI"]["OPENAI_API_KEY"])
  
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 
@@ -19,7 +19,7 @@ allende_bot.add("https://www.marxists.org/espanol/allende/")
 
 # Set up Streamlit input and output 
 st.title('Allende')
-user_query = st.text_input("Enter your question about Elon Musk")
+user_query = st.text_input("Haz tu consulta")
 if st.button('Ask'):
     response = allende_bot.query(user_query)
     st.write(response)
