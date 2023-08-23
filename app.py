@@ -1,7 +1,7 @@
 import streamlit as st
 import openai
-from embedchain import App
 import os
+from embedchain import App
 
 #Initiating OPENAI API KEY
 st.write(
