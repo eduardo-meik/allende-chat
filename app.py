@@ -3,7 +3,7 @@ import streamlit as st
 import os
 
 #Initiating OPENAI API KEY
-OPENAI_API_KEY = st.secrets("OPENAI_API_KEY")
+OPENAI_API_KEY = st.secrets(["OPENAI"]["OPENAI_API_KEY"])
  
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 
