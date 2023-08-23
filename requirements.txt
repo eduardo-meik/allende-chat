@@ -5,7 +5,7 @@ openai
 embedchain
 langchain>=0.0.205"
 requests
-chromadb>=0.4.2
+chromadb>=0.3.29
 youtube-transcript-api
 beautifulsoup4
 pypdf
