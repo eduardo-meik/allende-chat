@@ -1,0 +1,5 @@
+watchdog==3.0.0
+ipykernel==6.25.1
+streamlit==1.25.0
+openai
+embedchain
