@@ -3,9 +3,9 @@ import streamlit as st
 import os
 
 #Initiating OPENAI API KEY
-OPENAI_API_KEY = st.secrets(["OPENAI"]["OPENAI_API_KEY"])
- 
-os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+st.write(
+    "Has environment variables been set:",
+    os.environ["OPENAI_API_KEY"] == st.secrets["OPENAI_API_KEY"]
 
 import openai
 from embedchain import App
